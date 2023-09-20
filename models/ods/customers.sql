@@ -8,7 +8,6 @@ with customers as (
     {{ current_version_snapshot(
            ss_ref=ref('ss_customer')
      ) }}
-    --select * from {{ ref('base_customer') }}
 
 )
 select 
