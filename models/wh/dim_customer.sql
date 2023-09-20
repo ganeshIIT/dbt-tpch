@@ -19,6 +19,8 @@ regions as (
 ),
 final as (
     select 
+        c.customer_hkey,
+        c.customer_hdiff,
         c.customer_key,
         c.customer_name,
         c.customer_address,
@@ -28,7 +30,8 @@ final as (
         r.region_name as customer_region_name,
         c.customer_phone_number,
         c.customer_account_balance,
-        c.customer_market_segment_name
+        c.customer_market_segment_name,
+        c.SS_LOAD_TS_UTC
     from
         customers c
         join
