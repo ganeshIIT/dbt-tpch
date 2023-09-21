@@ -19,6 +19,7 @@ regions as (
 ),
 final as (
     select 
+        c.id,
         c.customer_hkey,
         c.customer_hdiff,
         c.customer_key,
@@ -31,7 +32,9 @@ final as (
         c.customer_phone_number,
         c.customer_account_balance,
         c.customer_market_segment_name,
-        c.SS_LOAD_TS_UTC
+        c.updated_at,
+        c.from_date,
+        c.to_date
     from
         customers c
         join
@@ -47,4 +50,4 @@ select
 from
     final f
 order by
-    f.customer_key
+    f.customer_key, from_date

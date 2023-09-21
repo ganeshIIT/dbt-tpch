@@ -3,8 +3,8 @@
 {{
    config(
        unique_key='customer_hkey',
-       strategy='check',
-       check_cols=['customer_hdiff'],
+       strategy='timestamp',
+       updated_at='updated_at',
    )
 }}
 
