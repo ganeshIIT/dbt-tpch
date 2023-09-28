@@ -22,7 +22,7 @@ select
     c.updated_at,
     c.dbt_updated_at,
     c.dbt_valid_from as from_date,
-    c.dbt_valid_to as to_date
+    nvl2(c.dbt_valid_to, dateadd('s',-1,c.dbt_valid_to), c.dbt_valid_to) as to_date
 from customers c
 order by
     c.customer_key, from_date
